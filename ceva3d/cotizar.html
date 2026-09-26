@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personaliza tu idea · Cotizador CEVA 3D</title>
+  <meta name="description" content="Cotiza tu proyecto de impresión 3D: figuras, repuestos, regalos, prototipos y producción por lotes. Envía tus referencias y recibe respuesta por WhatsApp.">
+  <meta name="theme-color" content="#101010">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CEVA 3D">
+  <meta property="og:title" content="Personaliza tu idea · CEVA 3D">
+  <meta property="og:description" content="Cuéntanos tu proyecto en cuatro pasos y recibe tu cotización por WhatsApp.">
+  <meta property="og:locale" content="es_EC">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:image" content="assets/img/og-ceva3d.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-pagina="cotizar">
+<main id="contenido">
+  <section class="cab-pagina">
+    <div class="contenedor">
+      <nav class="migas" aria-label="Ruta"><a href="index.html">Inicio</a><span>/</span><span>Personaliza tu idea</span></nav>
+      <h1>Personaliza <em>tu idea</em></h1>
+      <p>Cuéntanos qué quieres fabricar. Revisamos tu solicitud y te respondemos por WhatsApp con precio, material recomendado y plazo.</p>
+    </div>
+  </section>
+
+  <section class="sec sec-blanca" style="padding-top:56px">
+    <div class="contenedor cotizador">
+      <ol class="progreso" id="progreso" aria-label="Pasos">
+        <li><span class="n">1</span>Proyecto</li>
+        <li><span class="n">2</span>Referencias</li>
+        <li><span class="n">3</span>Detalles</li>
+        <li><span class="n">4</span>Tus datos</li>
+        <li><span class="n">5</span>Enviar</li>
+      </ol>
+
+      <form id="cotizador" novalidate>
+        <div class="barra-prog" aria-hidden="true"><i id="barra"></i></div>
+        <p class="paso-movil" id="paso-movil"></p>
+        <input class="trampa" type="text" name="sitio" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <!-- Paso 1 -->
+        <div class="panel-paso" data-paso="1">
+          <h2>¿Qué quieres crear?</h2>
+          <p class="intro">Elige la opción que mejor describe tu proyecto.</p>
+          <div class="contenido">
+            <div class="tipos" id="tipos" role="radiogroup" aria-label="Tipo de proyecto"></div>
+            <span class="msg-error" data-error="tipo"></span>
+          </div>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="panel-paso" data-paso="2">
+          <h2>Comparte tus referencias</h2>
+          <p class="intro">Fotos, bocetos o archivos 3D. Si aún no tienes nada, puedes continuar y describir tu idea en el siguiente paso.</p>
+          <div class="contenido">
+            <label class="zona-archivos" id="zona" for="archivos">
+              <span data-icono="subir"></span>
+              <strong>Arrastra tus archivos o toca para elegirlos</strong>
+              <p>Imágenes JPG, PNG, WEBP o HEIC · Modelos STL, OBJ o 3MF · Hasta 10 archivos de 50 MB</p>
+              <input class="sr-only" type="file" id="archivos" multiple accept=".jpg,.jpeg,.png,.webp,.heic,.heif,.stl,.obj,.3mf,image/*">
+            </label>
+            <span class="msg-error" data-error="archivos"></span>
+            <ul class="lista-archivos" id="lista-archivos"></ul>
+            <div class="aviso gris"><span data-icono="info"></span><p>Los archivos no se suben a ningún servidor desde esta página. En el último paso te indicamos cómo enviarlos por WhatsApp junto con tu solicitud.</p></div>
+          </div>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="panel-paso" data-paso="3">
+          <h2>Detalles del proyecto</h2>
+          <p class="intro">Mientras más detalles, más precisa será la cotización.</p>
+          <div class="contenido">
+            <div class="campo">
+              <span class="etq">Dimensiones aproximadas (cm)</span>
+              <div class="fila-campos tres">
+                <input class="control" type="number" min="0" step="0.1" inputmode="decimal" name="alto" placeholder="Alto" aria-label="Alto en centímetros">
+                <input class="control" type="number" min="0" step="0.1" inputmode="decimal" name="ancho" placeholder="Ancho" aria-label="Ancho en centímetros">
+                <input class="control" type="number" min="0" step="0.1" inputmode="decimal" name="largo" placeholder="Largo" aria-label="Largo en centímetros">
+              </div>
+              <label class="check"><input type="checkbox" name="sinMedidas"> No conozco las medidas exactas</label>
+            </div>
+            <div class="fila-campos">
+              <div class="campo">
+                <label for="cantidad">Cantidad</label>
+                <input class="control" type="number" min="1" max="10000" id="cantidad" name="cantidad" value="1" required>
+                <span class="msg-error" data-error="cantidad"></span>
+              </div>
+              <div class="campo">
+                <label for="fecha">Fecha requerida <span class="ayuda">(opcional)</span></label>
+                <input class="control" type="date" id="fecha" name="fecha">
+                <span class="msg-error" data-error="fecha"></span>
+              </div>
+            </div>
+            <div class="campo">
+              <span class="etq">Material</span>
+              <div class="pastillas" role="radiogroup" aria-label="Material">
+                <label class="pastilla"><input type="radio" name="material" value="Recomiéndame" checked><span>Recomiéndame</span></label>
+                <label class="pastilla"><input type="radio" name="material" value="PLA"><span>PLA</span></label>
+                <label class="pastilla"><input type="radio" name="material" value="PETG"><span>PETG</span></label>
+                <label class="pastilla"><input type="radio" name="material" value="TPU (flexible)"><span>TPU (flexible)</span></label>
+              </div>
+            </div>
+            <div class="fila-campos">
+              <div class="campo">
+                <label for="color">Color deseado</label>
+                <input class="control" id="color" name="color" maxlength="60" placeholder="Ej.: negro mate, blanco, varios colores">
+              </div>
+              <div class="campo">
+                <label for="acabado">Acabado</label>
+                <select class="control" id="acabado" name="acabado">
+                  <option>Estándar (tal como sale de la impresora)</option>
+                  <option>Lijado / superficie más lisa</option>
+                  <option>Pintado a mano</option>
+                  <option>No estoy seguro</option>
+                </select>
+              </div>
+            </div>
+            <div class="campo">
+              <label for="descripcion">Describe tu proyecto</label>
+              <textarea class="control" id="descripcion" name="descripcion" maxlength="1200" placeholder="¿Para qué es la pieza? ¿Debe encajar con algo? ¿Lleva nombre o texto?" required></textarea>
+              <span class="msg-error" data-error="descripcion"></span>
+            </div>
+            <div class="aviso amarillo"><span data-icono="info"></span><p><strong>El precio y el tiempo definitivos dependen de la revisión técnica</strong> de tu proyecto: tamaño, material, complejidad y capacidad de producción.</p></div>
+          </div>
+        </div>
+
+        <!-- Paso 4 -->
+        <div class="panel-paso" data-paso="4">
+          <h2>Tus datos</h2>
+          <p class="intro">Los usamos solo para responder a esta solicitud.</p>
+          <div class="contenido">
+            <div class="campo">
+              <label for="nombre">Nombre completo</label>
+              <input class="control" id="nombre" name="nombre" autocomplete="name" maxlength="80" required>
+              <span class="msg-error" data-error="nombre"></span>
+            </div>
+            <div class="fila-campos">
+              <div class="campo">
+                <label for="telefono">Teléfono / WhatsApp</label>
+                <input class="control" id="telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="09XXXXXXXX" required>
+                <span class="msg-error" data-error="telefono"></span>
+              </div>
+              <div class="campo">
+                <label for="correo">Correo electrónico <span class="ayuda">(opcional)</span></label>
+                <input class="control" id="correo" name="correo" type="email" autocomplete="email" maxlength="100">
+                <span class="msg-error" data-error="correo"></span>
+              </div>
+            </div>
+            <label class="check" id="consent-fotos-wrap" hidden><input type="checkbox" name="consentFotos"> <span>Confirmo que tengo autorización para compartir las fotografías de personas incluidas y acepto que CEVA 3D las use únicamente para elaborar esta cotización y el producto solicitado.</span></label>
+            <span class="msg-error" data-error="consentFotos"></span>
+            <label class="check"><input type="checkbox" name="consentDatos"> <span>Acepto que CEVA 3D use mis datos para responder esta solicitud.</span></label>
+            <span class="msg-error" data-error="consentDatos"></span>
+          </div>
+        </div>
+
+        <!-- Paso 5 -->
+        <div class="panel-paso" data-paso="5">
+          <h2>Revisa y envía</h2>
+          <p class="intro">Tu solicitud se enviará por WhatsApp con un mensaje ya preparado.</p>
+          <div class="contenido">
+            <div class="resumen-cot" id="resumen"></div>
+            <div class="aviso negro" id="instrucciones"></div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+              <a class="btn btn-amarillo" id="enviar-wa" href="#" target="_blank" rel="noopener"><span data-icono="wa" style="width:18px;height:18px;display:inline-grid"></span>Enviar por WhatsApp</a>
+              <button class="btn btn-contorno" type="button" id="compartir" hidden>Compartir con archivos</button>
+              <button class="btn btn-contorno" type="button" id="copiar">Copiar mensaje</button>
+            </div>
+            <p class="nota" id="nota-backend">Esta página todavía no registra solicitudes en un sistema: la referencia sirve para identificar tu conversación por WhatsApp. El registro y la confirmación automática se activarán cuando se conecte el panel de administración.</p>
+          </div>
+        </div>
+
+        <div class="nav-pasos">
+          <button class="btn btn-contorno" type="button" id="atras">Atrás</button>
+          <button class="btn btn-negro" type="button" id="siguiente">Continuar <svg class="flecha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/catalogo.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/cotizar.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tienda · CEVA 3D</title>
+  <meta name="description" content="Figuras personalizadas, regalos, decoración, accesorios, repuestos y maquetas impresas en 3D por CEVA 3D.">
+  <meta name="theme-color" content="#101010">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CEVA 3D">
+  <meta property="og:title" content="Tienda · CEVA 3D">
+  <meta property="og:description" content="Productos impresos en 3D, listos para entrega o fabricados bajo pedido.">
+  <meta property="og:locale" content="es_EC">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:image" content="assets/img/og-ceva3d.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-pagina="tienda">
+<main id="contenido">
+  <section class="cab-pagina">
+    <div class="contenedor">
+      <nav class="migas" aria-label="Ruta"><a href="index.html">Inicio</a><span>/</span><span id="miga-actual">Tienda</span></nav>
+      <h1 id="titulo-tienda">Tienda <em>CEVA 3D</em></h1>
+      <p id="desc-tienda">Productos listos para entrega y piezas fabricadas bajo pedido. Todo se puede consultar por WhatsApp.</p>
+      <div class="chips-cat" id="chips-cat" role="toolbar" aria-label="Categorías"></div>
+    </div>
+  </section>
+
+  <section class="sec sec-blanca" style="padding-top:48px">
+    <div class="contenedor">
+      <div id="aviso-demo"></div>
+      <div class="tienda">
+        <aside class="filtros" id="filtros" aria-label="Filtros">
+          <div class="cab-filtros-movil"><strong>Filtros</strong><button class="icono-btn" type="button" data-cerrar-filtros aria-label="Cerrar filtros"><span data-icono="cerrar"></span></button></div>
+          <div><h3>Disponibilidad</h3><div class="grupo" id="f-disp"></div></div>
+          <div><h3>Material</h3><div class="grupo" id="f-material"></div></div>
+          <div><h3>Color</h3><div class="grupo" id="f-color"></div></div>
+          <div>
+            <h3>Precio (USD)</h3>
+            <div class="rango">
+              <input class="control" type="number" min="0" inputmode="decimal" placeholder="Mín." id="f-min" aria-label="Precio mínimo">
+              <input class="control" type="number" min="0" inputmode="decimal" placeholder="Máx." id="f-max" aria-label="Precio máximo">
+            </div>
+            <label class="op" style="margin-top:8px"><input type="checkbox" id="f-cotizar" checked> Incluir productos a cotizar</label>
+          </div>
+          <button class="btn btn-contorno btn-chico" type="button" id="limpiar">Limpiar filtros</button>
+        </aside>
+
+        <div>
+          <div class="barra-tienda">
+            <span class="resultados" id="resultados" aria-live="polite"></span>
+            <div class="derecha">
+              <button class="btn btn-contorno btn-chico btn-filtros" type="button" id="abrir-filtros"><span data-icono="filtro" style="width:18px;height:18px;display:inline-grid"></span>Filtros</button>
+              <label class="sr-only" for="orden">Ordenar</label>
+              <select class="control" id="orden">
+                <option value="rel">Destacados</option>
+                <option value="asc">Precio: menor a mayor</option>
+                <option value="desc">Precio: mayor a menor</option>
+                <option value="nom">Nombre A–Z</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid-prod tres" id="grid-tienda"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-negra cta-final" style="padding:88px 0">
+    <div class="contenedor">
+      <span class="eyebrow">¿No encuentras lo que buscas?</span>
+      <h2 style="font-size:clamp(36px,5.5vw,64px)">Lo fabricamos <em>para ti.</em></h2>
+      <div class="botones"><a class="btn btn-amarillo" href="cotizar.html">Cotizar mi proyecto</a></div>
+    </div>
+  </section>
+</main>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/catalogo.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/tienda.js"></script>
+</body>
+</html>
